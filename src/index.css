@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #060607;
+  --color-panel: #0c0c0f;
+  --color-panel2: #101014;
+  --color-line: #1e1e24;
+  --color-fog: #8f8d88;
+  --color-dim: #55534f;
+  --color-bone: #eceae4;
+  --color-acid: #d7ff3e;
+  --color-ember: #ff5c1a;
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-acid);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262c;
+  border: 2px solid #08080a;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-acid);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(236, 234, 228, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(236, 234, 228, 0.04) 1px, transparent 1px);
+  background-size: 76px 76px;
+}
+
+.hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 5px,
+    rgba(236, 234, 228, 0.06) 5px 6px
+  );
+}
+
+.hatch-acid {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 5px,
+    rgba(215, 255, 62, 0.12) 5px 6px
+  );
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(236, 234, 228, 0.3);
+  color: transparent;
+}
+
+.text-outline-acid {
+  -webkit-text-stroke: 1px rgba(215, 255, 62, 0.55);
+  color: transparent;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slower {
+  animation: spin-slower 26s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1.05s steps(1) infinite;
+}
+
+@keyframes scan-y {
+  0% { top: -12%; }
+  100% { top: 112%; }
+}
+.scanline {
+  animation: scan-y 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(215, 255, 62, 0.5);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 6px rgba(215, 255, 62, 0);
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+.glow-acid {
+  text-shadow: 0 0 24px rgba(215, 255, 62, 0.35);
+}
